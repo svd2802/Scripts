@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import KleverComponent from './components/KleverComponent';
+
+
+/*
+const DummyComponent= () =>{
+  return <div>
+    <button>Ok</button>
+    <button>Cancel</button>
+  </div>
+}*/
 
 class App extends Component {
   render() {
@@ -13,6 +23,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <KleverComponent/>
       </div>
     );
   }
