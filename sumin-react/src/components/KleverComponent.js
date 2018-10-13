@@ -1,6 +1,6 @@
 import React from 'react';
 import { DummyComponent } from './DummyComponent';
-import {ToDoItem} from "./ToDOItem";
+import { ToDoItem } from "./ToDOItem";
 
 class KlevComponent extends React.Component {
     state = {
@@ -8,11 +8,11 @@ class KlevComponent extends React.Component {
         newNoteText: ''
     }
 
-    onInputChange = (event) =>{
+    onInputChange = (event) => {
         this.setState({
             newNoteText: event.target.value
         });
-    }      
+    }
 
     onOkButtonClick = () => {
         const newItem = {
@@ -27,8 +27,8 @@ class KlevComponent extends React.Component {
 
     onToDoComplete = (index) => () => {
         const updatedItems = [
-            ...this.state.notes.slice(0,index),
-            {...this.state.notes[index], isComplete:!this.state.notes[index].isComplete},
+            ...this.state.notes.slice(0, index),
+            { ...this.state.notes[index], isComplete: !this.state.notes[index].isComplete },
             ...this.state.notes.slice(index + 1)
         ];
         this.setState({
@@ -37,22 +37,20 @@ class KlevComponent extends React.Component {
     }
 
     render() {
-
-      return(
-        <div>
-          <input 
-          onChange = {this.onInputChange}
-          value={this.state.newNoteText} />
-          <DummyComponent onOkButtonClick = {this.onOkButtonClick}/>
-          {
-            this.state.notes.map( (n, index) => (
-                <ToDoItem key= {index} {...n} 
-                onComplete= {this.onToDoComplete(index)} />)
-            )
-          }
-        </div>
-      );
+        return (
+            <div>
+                <input
+                    onChange={this.onInputChange}
+                    value={this.state.newNoteText} />
+                <DummyComponent onOkButtonClick={this.onOkButtonClick} />
+                {
+                    this.state.notes.map((n, index) => (
+                        <ToDoItem key={index} {...n}
+                            onComplete={this.onToDoComplete(index)} />)
+                    )
+                }
+            </div>
+        );
     }
-  }
-
-  export default KlevComponent;
+}
+export default KlevComponent;
